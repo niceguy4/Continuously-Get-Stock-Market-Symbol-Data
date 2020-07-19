@@ -17,7 +17,9 @@ The variable **stock_symbol_requests** holds the ticker symbol and stock positio
 
 #### Delete File Command
 
-Full disclosure. This script does use a delete file command to delete the temporary file that is created by the pull data request. This code is found at the end of the **def append_stock_data()** function. `os.remove("Data/Market Data/" + str(stocksymbol[1]) + "_temp.csv")`
+Full disclosure. This script does use a delete file command to delete the temporary file that is created by the pull data request. This code is found at the end of the **def append_stock_data()** function. 
+
+`os.remove("Data/Market Data/" + str(stocksymbol[1]) + "_temp.csv")`
 
 #### Simple Bot Detection Avoidance Tactics
 
@@ -30,7 +32,9 @@ In the main while loop function, this script will randomly generate a wait timer
         time.sleep(rand_wait_seconds)
 ```
 
-There is a 7 second wait delay between ticker symbol pull requests. This delay could be extended or shortened. Be careful removing this delay, because you could risk getting throttled by the server, ip-ban or experience some other restrictions. `time.sleep(7)`
+There is a 7 second wait delay between ticker symbol pull requests. This delay could be extended or shortened. Be careful removing this delay, because you could risk getting throttled by the server, ip-ban or experience some other restrictions. 
+
+`time.sleep(7)`
     
 #### Ubuntu Crontabs Scheduler
 
