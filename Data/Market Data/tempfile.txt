@@ -1,1 +1,2 @@
-asdfasdf
+temporary text file for github to create /Data/Market Data/ folders
+this file can be deleted after download GitHub script
