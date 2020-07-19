@@ -1,5 +1,5 @@
 # Continuously-Get-Stock-Market-Symbol-Data
-Script gathers stock market symbol data from yahoo finance and updates data over time
+Script uses [yfinance](https://pypi.org/project/yfinance/) to gather stock market symbol data from yahoo finance and updates data over time.
 
 ## Description:
 
