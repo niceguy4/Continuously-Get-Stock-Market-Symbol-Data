@@ -42,5 +42,5 @@ If you use crontabs scheduler you may need to edit the pathing data within this 
 
 #### yfinance
 
-The script documentation can be found on the author's website: https://pypi.org/project/yfinance/ .
+yfinance is maintained by [Ran Aroussi](https://pypi.org/user/ranaroussi/). The script documentation can be found on the author's website: https://pypi.org/project/yfinance/ .
   
