@@ -8,13 +8,17 @@ Script gathers stock market symbol data from yahoo finance and updates data over
   
 
 ### Prerequisites:
-  1. Create the following folders where your script runs, Data/Market Data/ and Data/Logs/
-  
-    a. If the script is in C:\MyFiles\ you need to create C:\MyFiles\Data\Market Data\ and C:\MyFiles\Data\Logs\
-  2. Packages: datatime, time, yfinance, csv, os, random
-    a. May need to add packages datatime and csv using 'pip' function
-    b. You will need to install yfinance. This script pulls the stock market data
-      I. https://pypi.org/project/yfinance/
+
+1. Create the following folders where your script runs, Data/Market Data/ and Data/Logs/
+  If the script is in C:\MyFiles\ you need to create C:\MyFiles\Data\Market Data\ and C:\MyFiles\Data\Logs\
+    
+2. Packages: datatime, time, yfinance, csv, os, random
+
+a. May need to add packages datatime and csv using 'pip' function
+
+b. You will need to install yfinance. This script pulls the stock market data
+
+I. https://pypi.org/project/yfinance/
 
 
 #### Simple Bot Detection Avoidance Tactics
@@ -25,4 +29,4 @@ There is a 7 second wait delay between data pull requests. This could be extende
     
 #### Ubuntu Crontabs Scheduler
 
-If you use crontabs scheduler you may need to edit the pathing data within the script from /Data/Market Data/ to home/YOUR USER NAME/Desktop/Data/Logs/
+If you use crontabs scheduler you may need to edit the pathing data within this python script from /Data/Market Data/ to home/YOURUSERNAME/Desktop/Data/Logs/
