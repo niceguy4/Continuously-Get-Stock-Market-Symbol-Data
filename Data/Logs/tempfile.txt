@@ -1,0 +1,2 @@
+temporary text file for GitHub to create /Data/Logs/ folders
+this file can be deleted after downloading GitHub script
