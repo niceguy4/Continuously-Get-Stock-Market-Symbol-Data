@@ -13,7 +13,7 @@ This script can be setup to pull stock market symbol data over time using a sche
 
 ##### Stock Market Ticker Data
 
-The variable **stock_symbol_requests** holds the ticker symbol and stock position names. The default ticker symbols are index funds (S&P500, DOW, NASDAQ) which are found on yahoo finance website. Index symbols require the "^" character. If you want to search for stocks, mutuals or etfs, just use the actual ticker symbol. For example, to search Ford use the ticker symbol F. You do not need the "^" character. 
+The variable **stock_symbol_requests** holds the ticker symbol and stock position names. The default ticker symbols are index funds (S&P500, DOW, NASDAQ) which are found on yahoo finance website. Index symbols require the "^" character. If you want to search for stocks, mutual funds or etfs, just use the actual ticker symbol. For example, to search Ford use the ticker symbol F. You do not need the "^" character. 
 
 #### Delete File Command
 
