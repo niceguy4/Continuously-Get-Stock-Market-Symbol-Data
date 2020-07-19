@@ -1,15 +1,13 @@
 # Continuously-Get-Stock-Market-Symbol-Data
 Script gathers stock market symbol data from yahoo finance and updates data over time
 
-Description:
+## Description:
   This script can be setup to pull stock market symbol data over time using a scheduler program/script. For example, this script could do stock market symbol data updates every 7-days. The script will check if previous data exists in your script Market Data folder. If data exists it will update the existing file with the new data. If no file exists a new file is created.
 
   Variable stock_symbol_requests holds the symbol data and symbol names. The default symbols are index found on yahoo finance. They require the "^" character. If you want to search for Ford symbol F you do not need the "^" symbol.
   
 
-
-
-Requirements:
+### Prerequisites:
   1. Create the following folders where your script runs, Data/Market Data/ and Data/Logs/
     a. If the script is in C:\MyFiles\ you need to create C:\MyFiles\Data\Market Data\ and C:\MyFiles\Data\Logs\
   2. Packages: datatime, time, yfinance, csv, os, random
