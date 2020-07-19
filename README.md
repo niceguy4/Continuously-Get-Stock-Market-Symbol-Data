@@ -1,5 +1,5 @@
 # Continuously-Get-Stock-Market-Symbol-Data
-Script uses [yfinance](https://pypi.org/project/yfinance/) to gather stock market symbol data from yahoo finance and saves the data to a csv file. The file is updated every 4updates data over time.
+Script uses [yfinance](https://pypi.org/project/yfinance/) to gather stock market symbol data from yahoo finance and saves the data to a csv file. The script is set to only update the file if the market data is older then 4 days.
 
 ## Description:
 
@@ -36,6 +36,12 @@ There is a 7 second wait delay between ticker symbol pull requests. This delay c
 
     time.sleep(7)
     
+#### Issues & Challenges
+
+* If the script 4 day requirement is remove and yfinance start and end variable are set to update every day, yfinance was creating duplicate data that I was unable to resolve. For example, if we needed to update Friday's market close data for ticker "F" - the script was returning 2 sets of ticker symbol closing data. Not sure why.
+
+* Writing to a temporary file instead of just appending to the existing file. I could not figure out how to do this using the yfinance code so I decided on creating a temporary file.
+
 #### Ubuntu Crontabs Scheduler
 
 If you use crontabs scheduler you may need to edit the pathing data within this python script from /Data/Market Data/ to home/YOURUSERNAME/Desktop/Data/Logs/
