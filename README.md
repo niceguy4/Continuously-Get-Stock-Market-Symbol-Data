@@ -38,9 +38,9 @@ There is a 7 second wait delay between ticker symbol pull requests. This delay c
     
 #### Issues & Challenges
 
-* If the script 4 day requirement is remove and yfinance start and end variable are set to update every day, yfinance was creating duplicate data that I was unable to resolve. For example, if we needed to update Friday's market close data for ticker "F" - the script was returning 2 sets of ticker symbol closing data. Not sure why.
+* Double Data on Single Day Updates. If the script 4 day requirement is removed and yfinance variable `start` and `end` variables are set to update every day, yfinance was creating duplicate data that I was unable to resolve. For example, if we had Thursday's market close data and just needed to update Friday's market close data for ticker "F" - yfinance code was returning 2 sets of ticker closing data. Not sure why.
 
-* Writing to a temporary file instead of just appending to the existing file. I could not figure out how to do this using the yfinance code so I decided on creating a temporary file.
+* Writing to a temporary file instead of just appending to the existing file. I could not figure out how to do this using the yfinance code so I decided on creating a temporary file to then extract the data needed to append the main file.
 
 #### Ubuntu Crontabs Scheduler
 
