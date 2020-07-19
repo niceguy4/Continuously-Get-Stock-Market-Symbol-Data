@@ -3,9 +3,11 @@ Script gathers stock market symbol data from yahoo finance and updates data over
 
 ## Description:
 
-This script can be setup to pull stock market symbol data over time using a scheduler program/script. For example, this script could do stock market symbol data updates every 7-days. The script will check if previous data exists in your script Market Data folder. If data exists it will update the existing file with the new data. If no file exists a new file is created.
+This script can be setup to pull stock market symbol data over time using a scheduler program/script or used for single one-time pull data requests. For example, this script could pull stock market symbol data updates every 7-days. The script will check if previous data exists in your script Market Data folder. If data exists, it will update the existing file with the new data. If no file exists, a new file is created. The script uses yfinance to pull data from Yahoo Finance's Historical Data page (Ford [example](https://finance.yahoo.com/quote/F/history?p=F)).
 
-Variable **stock_symbol_requests** holds the ticker symbol and symbol names. The default ticker symbols are index funds (S&P500, DOW, NASDAQ) on yahoo finance. Index symbols require the "^" character. If you want to search for stock, mutual or etfs use the actual ticker symbol. For example, to use for Ford use the ticker symbol F. You do not need the "^" symbol. 
+##### Stock Market Ticker Data
+
+The variable **stock_symbol_requests** holds the ticker symbol and symbol names. The default ticker symbols are index funds (S&P500, DOW, NASDAQ) found on yahoo finance. Index symbols require the "^" character. If you want to search for stock, mutual or etfs use the actual ticker symbol. For example, to use for Ford use the ticker symbol F. You do not need the "^" symbol. 
 
 #### Delete File Command
 
