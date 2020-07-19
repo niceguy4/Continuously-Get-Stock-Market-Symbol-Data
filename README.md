@@ -26,10 +26,10 @@ Full disclosure. This script does use a delete file command to delete the tempor
 In the main while loop function, this script will randomly generate a wait timer based on 1-hour. The range is from 0 to 60 minutes. This is to reduce the probability that Yahoo's website detects the scripts pull requests. Continuously making pull requests from Yahoo Finance's website every 30-seconds or systematically, e.g. every 1-hour or 30-minutes could be recognized by Yahoo and stopped. This feature is optional and can be removed from the script.
 
 ```
-    #   random wait to disguise bot pulls (1-hour window)
-    rand_wait_seconds = int(random.random()*3600)
-    print("Random minutes - waiting: " + str(int(rand_wait_seconds/60)))
-    time.sleep(rand_wait_seconds)
+#   random wait to disguise bot pulls (1-hour window)
+rand_wait_seconds = int(random.random()*3600)
+print("Random minutes - waiting: " + str(int(rand_wait_seconds/60)))
+time.sleep(rand_wait_seconds)
 ```
 
 There is a 7 second wait delay between ticker symbol pull requests. This delay could be extended or shortened. Be careful removing this delay, because you could risk getting throttled by the server, ip-ban or experience some other restrictions. 
