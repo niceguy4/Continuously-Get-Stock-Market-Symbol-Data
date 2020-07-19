@@ -21,9 +21,9 @@ Full disclosure. This script uses a command to delete the temporary file that is
 
 #### Simple Bot Detection Avoidance Tactics
 
-In the main while loop function, the script will randomly generate a wait timer based on 1-hour. The range is from 0 to 60 minutes. This is to reduce the probability that any server-side detection is found. Pull every 5-minutes or systematically, e.g. every 1-hour or 30-minutes could be recognized. This feature is optional and can be removed from the script.
+In the main while loop function, the script will randomly generate a wait timer based on 1-hour. The range is from 0 to 60 minutes. This is to reduce the probability that Yahoo's website detects the scripts pull requests. Continuously making pull requests from Yahoo Finance's website every 30-seconds or systematically, e.g. every 1-hour or 30-minutes could be recognized by Yahoo and stopped. This feature is optional and can be removed from the script.
 
-There is a 7 second wait delay between data pull requests. This could be extended or shorten. Be careful removing this delay because you could risk getting throttled by the server, ip-ban or experience some other restrictions.    
+There is a 7 second wait delay between ticker symbol pull requests. This delay could be extended or shortened. Be careful removing this delay, because you could risk getting throttled by the server, ip-ban or experience some other restrictions.
     
 #### Ubuntu Crontabs Scheduler
 
