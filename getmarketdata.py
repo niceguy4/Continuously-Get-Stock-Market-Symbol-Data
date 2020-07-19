@@ -1,3 +1,6 @@
+#   script gets ticker symbol data from yahoo finance website using yfinance function and
+#   saves or appends data to csv files. timeframe can be adjusted.
+
 import datetime
 import time
 import yfinance as yf
@@ -8,24 +11,27 @@ import random
 
 #   stock symbol : stock name
 stock_symbol_requests = {'^GSPC': 'SP500', '^DJI': 'DOW', '^IXIC': 'NASDAQ'}
+#   default start date
 start_date_no_file = '2020-06-19'
 
 
+#   return todays date. format YYYYMMDD
 def date_post():
     return datetime.datetime.today().strftime('%Y%m%d')
 
 
+#   return date/time for error tracking. format YYYYMMDD HOUR-MINUTE-SECOND
 def time_post():
     return datetime.datetime.today().strftime('%Y%m%d %H-%M-%S')
 
 
-#   get last market data update date and count days since today and update
+#   get last market data update date and count days since today and last update
 def get_market_data_start_date(stocksymbol):
     today = datetime.date.today()
-
     count_days = 0
 
-    #   files are missing. restart the full data pulls
+    #   checks for previous market data files. if no files exist, code pulls singles full pull is needed
+    #   if file exits checks for last market date and start date
     if not (os.path.isfile('Data/Market Data/' + str(stocksymbol[1]) + '.csv')):
         today = start_date_no_file
         count_days = 5
@@ -38,7 +44,7 @@ def get_market_data_start_date(stocksymbol):
         f_start_date.seek(0)
         mdreader = list(mdreader)
 
-        #   function removes accidental white space on csv pull
+        #   function removes accidental white space from csv file in variable
         row_count = 0
         del_list = []
         for get_print_lines in mdreader:
@@ -50,29 +56,28 @@ def get_market_data_start_date(stocksymbol):
         for del_spaces in del_list:
             del mdreader[del_spaces]
 
+        #   counts rows in existing file to grab the last row
         row_count = sum(1 for row in mdreader)
-        print(row_count)
-
         f_start_date.seek(0)
 
-        print(mdreader[row_count - 1])
         last_row_date = mdreader[row_count - 1]
         date_last = last_row_date[0]
         f_start_date.close()
         file_exists = True
 
+        #   determines the number of dates since last market update pull
         if str(date_last) == str(today):
-            print("today is the day")
-            print(today)
+            #print(today)
             return today, count_days, file_exists
         else:
             while str(date_last) != str((today - datetime.timedelta(days=count_days))):
                 count_days = count_days + 1
-            print(str((today - datetime.timedelta(days=count_days - 1))))
+            #print(str((today - datetime.timedelta(days=count_days - 1))))
             return str((today - datetime.timedelta(days=count_days - 1))), count_days, file_exists
     return today, count_days, file_exists
 
 
+#   function that gathers market data from yahoo finance website using yfinace code
 #   write to temp file so main file is not over written
 def stock_data_to_csv(file_exists, stocksymbol, md_start_date, end_date_grab_data):
 
@@ -92,7 +97,8 @@ def stock_data_to_csv(file_exists, stocksymbol, md_start_date, end_date_grab_dat
     return
 
 
-#   append main file and delete temp file
+#   gets data from temporary file and updates main file. deletes temp file
+#   skip headers
 def append_stock_data(stocksymbol):
 
     f_reader = open('Data/Market Data/' + str(stocksymbol[1]) + '_temp.csv', newline='', encoding='utf-8')
@@ -100,7 +106,6 @@ def append_stock_data(stocksymbol):
     row_count = sum(1 for row in mdreader)
     f_reader.seek(0)
     if row_count > 1:
-        print(row_count)
         mdreader = list(mdreader)
         mdreader.pop(0)
         f_write = open('Data/Market Data/' + str(stocksymbol[1]) + '.csv', 'a+', newline='', encoding='utf-8')
@@ -113,6 +118,7 @@ def append_stock_data(stocksymbol):
     return
 
 
+#   main start function for script
 while True:
     try:
         last_count_days = 0
@@ -145,7 +151,7 @@ while True:
             print("Last market update less than 4 days old.")
         exit()
 
-        #   handle any errors and write to file for tracking
+        #   handle errors and write to file for tracking
     except Exception as message_error:
         exception_error_time = time_post()
         print("Exception Market Data Script")
