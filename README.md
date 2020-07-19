@@ -1,9 +1,9 @@
 # Continuously-Get-Stock-Market-Symbol-Data
-Script uses [yfinance](https://pypi.org/project/yfinance/) to gather stock market symbol data from yahoo finance and updates data over time.
+Script uses [yfinance](https://pypi.org/project/yfinance/) to gather stock market symbol data from yahoo finance and saves the data to a csv file. The file is updated every 4updates data over time.
 
 ## Description:
 
-This script can be setup to pull stock market symbol data over time using a scheduler program/script or can be used for one-time market data pull requests. For example, this script could be triggered to pull stock market data every 7-days (cron jobs). This script will check for previous existing fiel data in your script Market Data folder. If data exists, it will update the existing file with the new data and delete the temporary file. If no file exists, a new file is created. The script uses yfinance to pull data from Yahoo Finance's Historical Data page (Ford [example](https://finance.yahoo.com/quote/F/history?p=F)).
+This script can be setup to pull stock market symbol data over time using a scheduler program/script or can be used for one-time market data pull requests. For example, this script could be triggered to pull stock market data every 7-days (cron jobs). The data will only update the file if the market date is > than 4 days old. This script will check for previous existing file data in your script Market Data folder. If data exists, it will update the existing file with the new data and delete the temporary file. If no file exists, a new file is created. The script uses yfinance to pull data from Yahoo Finance's Historical Data page (Ford [example](https://finance.yahoo.com/quote/F/history?p=F)).
 
 ### Prerequisites:
 
