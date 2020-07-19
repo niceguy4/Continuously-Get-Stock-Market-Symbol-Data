@@ -7,9 +7,9 @@ This script can be setup to pull stock market symbol data over time using a sche
 
 Variable **stock_symbol_requests** holds the ticker symbol and symbol names. The default ticker symbols are index funds (S&P500, DOW, NASDAQ) on yahoo finance. Index symbols require the "^" character. If you want to search for stock, mutual or etfs use the actual ticker symbol. For example, to use for Ford use the ticker symbol F. You do not need the "^" symbol. 
 
-#### yfinance
-The script documentation can be found on the author's website: https://pypi.org/project/yfinance/ .
-  
+#### Delete File Command
+
+Full disclosure. This script does use a command to delete the temporary file that is created by the pull data request. This is found at the end of the **def append_stock_data()** function.
 
 ### Prerequisites:
 
@@ -27,3 +27,8 @@ There is a 7 second wait delay between data pull requests. This could be extende
 #### Ubuntu Crontabs Scheduler
 
 If you use crontabs scheduler you may need to edit the pathing data within this python script from /Data/Market Data/ to home/YOURUSERNAME/Desktop/Data/Logs/
+
+#### yfinance
+
+The script documentation can be found on the author's website: https://pypi.org/project/yfinance/ .
+  
